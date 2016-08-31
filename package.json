@@ -10,5 +10,8 @@
     "seneca": "2.0.0",
     "seneca-entity": "0.0.1"
   },
-  "scripts": {"start":"node patient-pin-service.js"}
+  "scripts": {
+    "install":"npm install",
+    "start":"npm install; node patient-pin-service.js"
+  }
 }
