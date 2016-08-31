@@ -19,7 +19,9 @@ npm install
 - patient-tree - will print the tree
 - app.js - start script
 - patient-service.js - patient service, listens on port 10101
-- pateint-client.js - client for patient-service.js
+- patient-client.js - client for patient-service.js
+- patient-pin-service.js - pins the patient services
+- pateint-pin-client-js - pins the patient client
 
 #### patient-service.js
 
@@ -37,3 +39,13 @@ Calls patient-service.js
 ```
 node patient-client.js
 ```
+
+# Web Server Integration
+
+Seneca is not a web framework. But you still need to connect it up to your Web
+service API.
+
+The most important thing to remember is that you don't want to expose your
+internal action patterns to the outside world. That's no good security practice.
+Instead, define a set of API patterns, say with property role:api. Then you
+can hook them up to your internal microservices.
