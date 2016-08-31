@@ -63,3 +63,11 @@ Then call the api using your browser
 ```
 http://localhost:3000/api/patients/new?firstname=Patrick&lastname=Schlaepfer
 ```
+
+# Docker
+
+Build the docker container user docker-compose, as a rabbitmq will be included.
+
+```
+docker-compose -f docker-compose.yml up
+```
