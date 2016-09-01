@@ -69,7 +69,11 @@ http://localhost:3000/api/patients/new?firstname=Patrick&lastname=Schlaepfer
 RabbitMQ will be bundle in the docker container. In a development environment you might want to have a local
 running RabbitMQ.
 
+## Installation webadmin
 
+```
+rabbitmq-plugins enable rabbitmq_management
+```
 
 
 # Docker

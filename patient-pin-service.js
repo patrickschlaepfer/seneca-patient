@@ -5,7 +5,8 @@
 require('seneca')()
 
   .use('patient')
+  .use('seneca-amqp-transport')
 
   // listen for role:patient messages
   // IMPORTANT: must match client
-  .listen({ type: 'tcp', pin: 'role:patient' })
+  .listen({ type: 'amqp', pin: 'role:patient' })

@@ -2,9 +2,13 @@
  * Web frontend to patient.js
  */
 
+'use strict'
+
 var seneca = require('seneca')()
       .use('api')
-      .client({ type:'tcp', pin:'role:patient' })
+      .use('seneca-amqp-transport')
+      .client({ type:'amqp', pin:'role:patient' })
+
 
 var app = require('express')()
       .use(require('body-parser').json())
