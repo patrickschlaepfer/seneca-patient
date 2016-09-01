@@ -64,6 +64,14 @@ Then call the api using your browser
 http://localhost:3000/api/patients/new?firstname=Patrick&lastname=Schlaepfer
 ```
 
+# RabbitMQ
+
+RabbitMQ will be bundle in the docker container. In a development environment you might want to have a local
+running RabbitMQ.
+
+
+
+
 # Docker
 
 Build the docker container user docker-compose, as a rabbitmq will be included.
