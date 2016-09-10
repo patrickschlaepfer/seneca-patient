@@ -8,7 +8,7 @@ require('seneca')()
 
   // send any role:patient patterns out over the network
   // IMPORTANT: must match listening service
-  .client({ type: 'amqp', pin: 'role:patient' })
+  .client({ type: 'nats', pin: 'role:patient' })
 
   // executed remotely
   .act('role:patient,cmd:new,firstname:Patrick,lastname:Schlaepfer',console.log)

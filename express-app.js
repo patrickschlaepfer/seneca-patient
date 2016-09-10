@@ -6,8 +6,8 @@
 
 var seneca = require('seneca')()
       .use('api')
-      .use('seneca-amqp-transport')
-      .client({ type:'amqp', pin:'role:patient' })
+      .use('nats-transport')
+      .client({ type:'nats', pin:'role:patient' })
 
 
 var app = require('express')()
