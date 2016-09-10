@@ -7,7 +7,7 @@
 var seneca = require('seneca')()
       .use('api')
       .use('nats-transport')
-      .client({ type:'nats', pin:'role:patient' })
+      .client({ type:'nats', pin:'role:patient:*' })
 
 
 var app = require('express')()

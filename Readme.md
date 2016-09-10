@@ -64,62 +64,10 @@ Then call the api using your browser
 http://localhost:3000/api/patients/new?firstname=Patrick&lastname=Schlaepfer
 ```
 
-# RabbitMQ
+# NATS
 
-RabbitMQ will be bundle in the docker container. In a development environment you might want to have a local
-running RabbitMQ.
-
-## Installation webadmin
+How to start nats
 
 ```
-rabbitmq-plugins enable rabbitmq_management
-```
-
-
-# Docker
-
-Build the docker container user docker-compose, as a rabbitmq will be included.
-
-```
-docker-compose -f docker-compose.yml up
-```
-
-## On Windows 10
-
-if you run into a timeout downloading the docker images on windows 10 hosts,
-this may help
-
-```
-PS C:\WINDOWS\system32> Get-NetAdapter "vEthernet (DockerNAT)"
-
-Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-----                      --------------------                    ------- ------       ----------             ---------
-vEthernet (DockerNAT)     Hyper-V Virtual Ethernet Adapter #3          62 Up           00-15-5D-4B-01-01        10 Gbps
-vEthernet (DockerNAT)     Hyper-V Virtual Ethernet Adapter #2          21 Disconnected 00-15-5D-4B-01-02        10 Gbps
-
-
-PS C:\WINDOWS\system32> $vmNetAdapter = Get-VMNetworkAdapter -ManagementOS -SwitchName DockerNAT
-PS C:\WINDOWS\system32> Get-NetAdapter "vEthernet (DockerNAT)" | ? { $_.DeviceID -ne $vmNetAdapter.DeviceID } | Disable-
-NetAdapter -Confirm:$False -PassThru | Rename-NetAdapter -NewName "OLD"
-
-Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-----                      --------------------                    ------- ------       ----------             ---------
-OLD                       Hyper-V Virtual Ethernet Adapter #2          21 Disabled     00-15-5D-4B-01-02        10 Gbps
-
-
-PS C:\WINDOWS\system32> Get-NetAdapter "vEthernet (DockerNAT)"
-
-Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-----                      --------------------                    ------- ------       ----------             ---------
-vEthernet (DockerNAT)     Hyper-V Virtual Ethernet Adapter #3          62 Up           00-15-5D-4B-01-01        10 Gbps
-
-
-PS C:\WINDOWS\system32> Get-NetAdapter "vEthernet (DockerNAT)"
-
-Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-----                      --------------------                    ------- ------       ----------             ---------
-vEthernet (DockerNAT)     Hyper-V Virtual Ethernet Adapter #3          62 Up           00-15-5D-4B-01-01        10 Gbps
-
-
-PS C:\WINDOWS\system32>
+gnatsd -m 8222
 ```

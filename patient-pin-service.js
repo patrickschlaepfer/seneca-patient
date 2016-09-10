@@ -9,4 +9,4 @@ require('seneca')()
 
   // listen for role:patient messages
   // IMPORTANT: must match client
-  .listen({ type: 'nats', pin: 'role:patient' })
+  .listen({ type: 'nats', pin: 'role:patient:*' })
